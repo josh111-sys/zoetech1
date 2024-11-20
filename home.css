@@ -1,0 +1,130 @@
+/* General Styling */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    background-color: #343a40;
+    padding: 10px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+}
+
+.hero-section {
+    height: 100vh;
+    background: url('img/img\ \(6\).jpg') no-repeat center center/cover;
+    position: relative;
+    animation: slide 10s infinite alternate; /* Background animation */
+}
+
+@keyframes slide {
+    0% {
+        background-image: url('img/img\ \(3\).jpg');
+    }
+    50% {
+        background-image: url('img/img\ \(7\).jpg');
+    }
+    100% {
+        background-image: url('img/img\ \(4\).jpg');
+    }
+}
+
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+}
+
+/* Facilities Section */
+.facilities {
+    padding: 50px;
+    background-color: #f8f9fa;
+    text-align: center;
+}
+
+.facilities h2 {
+    margin-bottom: 40px;
+    font-size: 2.5rem;
+}
+
+.facility-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.facility {
+    background-color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.facility img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.facility h3 {
+    margin-top: 20px;
+    color: #343a40;
+}
+
+/* Contact Section */
+#contact {
+    padding: 50px;
+    background-color: #343a40;
+    color: white;
+    text-align: center;
+}
+
+#contact form {
+    margin-top: 20px;
+}
+
+#contact form input, #contact form textarea {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+#contact button {
+    padding: 10px 20px;
+    background-color: #800080;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#contact button:hover {
+    background-color: #5a005a;
+}
+
+footer {
+    background-color: #1d4e80;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}

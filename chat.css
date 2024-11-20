@@ -1,0 +1,57 @@
+body {
+    background: linear-gradient(135deg, #6a11cb, #2575fc); /* Purple and blue gradient */
+    font-family: Arial, sans-serif;
+}
+
+.chat-box {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 0 auto;
+    height: 300px;
+    overflow-y: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.chat-bubble {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+
+.chat-bubble img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.patient .chat-content, .doctor .chat-content {
+    background-color: #f1f1f1;
+    padding: 10px 15px;
+    border-radius: 20px;
+    max-width: 70%;
+}
+
+.patient .chat-content {
+    background-color: #e0f7fa;
+    color: #00796b;
+}
+
+.doctor .chat-content {
+    background-color: #ffecb3;
+    color: #bf360c;
+}
+
+.patient {
+    justify-content: flex-start;
+}
+
+.doctor {
+    justify-content: flex-end;
+}
+
+.chat-content p {
+    margin: 0;
+}

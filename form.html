@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hospital Payment Form</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="form.css">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="container mt-5">
+    <h2 class="text-center mb-4">Hospital Payment Form</h2>
+    <form id="paymentForm" enctype="multipart/form-data">
+      <!-- Patient Details Section -->
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label for="patientName" class="form-label">Name <i class="fas fa-user"></i></label>
+          <input type="text" class="form-control" id="patientName" required placeholder="Enter Full Name">
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="dob" class="form-label">Date of Birth <i class="fas fa-calendar-alt"></i></label>
+          <input type="date" class="form-control" id="dob" required>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label for="phone" class="form-label">Phone Number <i class="fas fa-phone"></i></label>
+          <input type="tel" class="form-control" id="phone" required placeholder="Enter Phone Number">
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="address" class="form-label">Address <i class="fas fa-map-marker-alt"></i></label>
+          <input type="text" class="form-control" id="address" required placeholder="Enter Address">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label for="locality" class="form-label">Locality <i class="fas fa-map-signs"></i></label>
+          <input type="text" class="form-control" id="locality" required placeholder="Enter Locality">
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="country" class="form-label">Country <i class="fas fa-globe"></i></label>
+          <input type="text" class="form-control" id="country" required placeholder="Enter Country">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label for="sickness" class="form-label">Sickness Name <i class="fas fa-notes-medical"></i></label>
+          <input type="text" class="form-control" id="sickness" required placeholder="Enter Sickness">
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="status" class="form-label">Status <i class="fas fa-info-circle"></i></label>
+          <input type="text" class="form-control" id="status" required placeholder="Patient Status">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label for="gender" class="form-label">Gender <i class="fas fa-venus-mars"></i></label>
+          <select class="form-select" id="gender" required>
+            <option value="">Select Gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="guardian" class="form-label">Name of Guardians <i class="fas fa-users"></i></label>
+          <input type="text" class="form-control" id="guardian" required placeholder="Enter Guardian Name">
+        </div>
+      </div>
+
+      <!-- Upload Passport Section -->
+      <div class="mb-3">
+        <label for="passportUpload" class="form-label">Upload Passport Photo <i class="fas fa-upload"></i></label>
+        <input type="file" class="form-control" id="passportUpload" accept="image/*" required>
+      </div>
+
+      <!-- Payment Information Section -->
+      <div class="mb-3">
+        <label for="atmCard" class="form-label">ATM Card Number <i class="fas fa-credit-card"></i></label>
+        <input type="text" class="form-control" id="atmCard" required placeholder="Enter ATM Card Number">
+      </div>
+      <div class="mb-3">
+        <label for="expirationDate" class="form-label">Expiration Date <i class="fas fa-calendar-alt"></i></label>
+        <input type="month" class="form-control" id="expirationDate" required>
+      </div>
+
+      <div class="d-grid">
+        <button type="submit" class="btn btn-primary btn-lg">Make Payment <i class="fas fa-paper-plane"></i></button>
+      </div>
+
+      <!-- Payment Response -->
+      <div id="paymentResponse" class="alert mt-3 d-none" role="alert"></div>
+    </form>
+  </div>
+
+  <!-- FORM SCRIPT -->
+   <Script>
+  document.getElementById('paymentForm').addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  const patientName = document.getElementById('patientName').value;
+  const dob = document.getElementById('dob').value;
+  const phone = document.getElementById('phone').value;
+  const address = document.getElementById('address').value;
+  const locality = document.getElementById('locality').value;
+  const country = document.getElementById('country').value;
+  const sickness = document.getElementById('sickness').value;
+  const status = document.getElementById('status').value;
+  const gender = document.getElementById('gender').value;
+  const guardian = document.getElementById('guardian').value;
+  const passportFile = document.getElementById('passportUpload').files[0];
+  const atmCard = document.getElementById('atmCard').value;
+  const expirationDate = document.getElementById('expirationDate').value;
+
+  // Simulate payment validation and process
+  if (patientName && dob && phone && address && locality && country && sickness && status && gender && guardian && passportFile && atmCard && expirationDate) {
+    displayResponse('Payment successful! Thank you for your payment.', 'success');
+  } else {
+    displayResponse('Payment failed. Please fill all required fields.', 'danger');
+  }
+});
+
+function displayResponse(message, type) {
+  const responseDiv = document.getElementById('paymentResponse');
+  responseDiv.innerHTML = message;
+  responseDiv.className = `alert alert-${type}`;
+  responseDiv.style.display = 'block';
+}
+
+   </Script>
+  <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

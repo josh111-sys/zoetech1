@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor-Patient Conversation</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="chat.css">
+</head>
+<body>
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4" style="color: white;">Conversation between Doctor and Patient</h2>
+
+    <div class="chat-box" id="chatBox">
+        <!-- Chat conversation will be injected here via JavaScript -->
+    </div>
+
+    <button class="btn btn-primary mt-4" id="startConversation">Start Conversation</button>
+</div>
+
+<!-- scripting for chat -->
+ <script>
+    // Conversation data (Doctor and Patient)
+const conversation = [
+    { role: 'patient', message: "Good morning, doctor. I’ve been having some headaches recently." },
+    { role: 'doctor', message: "Good morning. How long have you been experiencing these headaches?" },
+    { role: 'patient', message: "For about three days now. It’s worse in the morning." },
+    { role: 'doctor', message: "Have you taken any medication so far?" },
+    { role: 'patient', message: "No, I haven’t. I wanted to consult with you first." }
+];
+
+// Images for doctor and patient
+const img = {
+    patient: 'img/img (6).jpg',
+    doctor: 'img/doc (5).jpg',
+};
+
+// Reference to the chatBox
+const chatBox = document.getElementById('chatBox');
+
+// Function to display conversation dynamically
+function startConversation() {
+    let index = 0;
+
+    function displayNextMessage() {
+        if (index < conversation.length) {
+            const currentMessage = conversation[index];
+            const chatBubble = document.createElement('div');
+            chatBubble.classList.add('chat-bubble', currentMessage.role);
+
+            const chatImage = `<img src="${img [currentMessage.role]}" alt="${currentMessage.role}">`;
+            const chatContent = `<div class="chat-content"><p>${currentMessage.message}</p></div>`;
+
+            chatBubble.innerHTML = currentMessage.role === 'patient' ? chatImage + chatContent : chatContent + chatImage;
+
+            chatBox.appendChild(chatBubble);
+            chatBox.scrollTop = chatBox.scrollHeight; // Scroll to the latest message
+
+            index++;
+            setTimeout(displayNextMessage, 2000); // Display the next message after 2 seconds
+        }
+    }
+
+    displayNextMessage();
+}
+
+// Add event listener to start the conversation
+document.getElementById('startConversation').addEventListener('click', startConversation);
+
+ </script>
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- Custom JavaScript -->
+<script src="script.js"></script>
+
+</body>
+</html>

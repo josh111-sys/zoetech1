@@ -1,0 +1,108 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+   background-image: url(img/img\ \(3\).jpg);
+   background-size: cover;
+    animation: gradient 1s ease infinite; /* Background gradient animation */
+    font-family: Arial, sans-serif;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Background Animation */
+@keyframes gradient {
+    0% {
+        background-color: #800080;
+    }
+    50% {
+        background-color: #d66dff;
+    }
+    100% {
+        background-color: #800080;
+    }
+}
+
+/* Hero Section */
+.hero-section {
+    background: url('img/img\ \(2\).jpg') no-repeat center center/cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.hero-section h1 {
+    font-size: 4rem;
+}
+
+.hero-section .btn {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    padding: 10px 30px;
+}
+
+/* Services Section */
+#services {
+    background-color: #f8f9fa;
+}
+
+#services h2 {
+    font-size: 2.5rem;
+}
+
+#services .fa-3x {
+    color: #800080;
+}
+
+#services .col-md-4 {
+    margin-bottom: 30px;
+}
+
+/* About Us Section */
+#about {
+    background-color: #e9ecef;
+}
+
+#about p {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Login Section */
+#login {
+    position: relative;
+}
+
+#login h2 {
+    margin-bottom: 30px;
+}
+
+#login-form {
+    background-color: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.5);
+    transition: all 0.3s ease; /* Transition effect */
+}
+
+#login-form .form-group {
+    position: relative;
+}
+
+#login-form .form-control {
+    margin-bottom: 15px;
+    padding-left: 40px; /* Add padding for icon space */
+}
+
+/* Footer */
+footer {
+    background-color: #343a40;
+    color: #fff;
+}
